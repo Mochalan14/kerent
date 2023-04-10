@@ -15,16 +15,16 @@ return new class extends Migration
     {
         Schema::create('penyewaans', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('users_id');
-            $table->foreign('users_id')->references('id')->on('users');
-            $table->unsignedBigInteger('mobils_id');
-            $table->foreign('mobils_id')->references('id')->on('mobils');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('mobil_id');
+            $table->foreign('mobil_id')->references('id')->on('mobils');
             $table->date('tanggal_sewa');
             $table->date('tanggal_kembali');
-            $table->decimal('total_harga', 10, 2);
+            $table->integer('total_harga');
             $table->string('bukti_pembayaran');
-            $table->unsignedBigInteger('konfirmasis_id');
-            $table->foreign('konfirmasis_id')->references('id')->on('konfirmasis');
+            $table->unsignedBigInteger('konfirmasi_id');
+            $table->foreign('konfirmasi_id')->references('id')->on('konfirmasis');
             $table->timestamps();
         });
     }
