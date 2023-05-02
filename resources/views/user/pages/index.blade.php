@@ -174,12 +174,13 @@
             <div class="row">
                 <div class="left-image col-lg-5 col-md-12 col-sm-12 mobile-bottom-fix-big"
                     data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
-                    <img src="assets/images/left-image.png" class="rounded img-fluid d-block mx-auto" alt="App">
+                    <img src="assets/user/images/left-image.png" class="rounded img-fluid d-block mx-auto"
+                        alt="App">
                 </div>
                 <div class="right-text offset-lg-1 col-lg-6 col-md-12 col-sm-12 mobile-bottom-fix">
                     <ul>
                         <li data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
-                            <img src="assets/images/about-icon-01.png" alt="">
+                            <img src="assets/user/images/about-icon-01.png" alt="">
                             <div class="text">
                                 <h4>Vestibulum pulvinar rhoncus</h4>
                                 <p>Please do not redistribute this template ZIP file for a download purpose. You may <a
@@ -189,7 +190,7 @@
                             </div>
                         </li>
                         <li data-scroll-reveal="enter right move 30px over 0.6s after 0.5s">
-                            <img src="assets/images/about-icon-02.png" alt="">
+                            <img src="assets/user/images/about-icon-02.png" alt="">
                             <div class="text">
                                 <h4>Sed blandit quam in velit</h4>
                                 <p>You can <a rel="nofollow"
@@ -199,7 +200,7 @@
                             </div>
                         </li>
                         <li data-scroll-reveal="enter right move 30px over 0.6s after 0.6s">
-                            <img src="assets/images/about-icon-03.png" alt="">
+                            <img src="assets/user/images/about-icon-03.png" alt="">
                             <div class="text">
                                 <h4>Aenean faucibus venenatis</h4>
                                 <p>Phasellus in imperdiet felis, eget vestibulum nulla. Aliquam nec dui nec augue
