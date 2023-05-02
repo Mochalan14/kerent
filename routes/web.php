@@ -23,3 +23,7 @@ Route::controller(UserController::class)->group(function () {
     Route::get('/sewaku', 'sewaku')->name('sewaku');
 
 });
+
+Route::get('/admin', function () {
+    return view('admin.index');
+});
