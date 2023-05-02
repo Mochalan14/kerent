@@ -1,4 +1,5 @@
 @extends('user.layouts.app')
+@section('judul', 'Landing Page')
 @section('konten')
     <!-- ***** Welcome Area Start ***** -->
     <div class="welcome-area" id="welcome">

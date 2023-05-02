@@ -1,5 +1,6 @@
 @extends('user.layouts.app')
 
+@section('judul', 'Sewaku')
 @section('konten')
     <div class="section2 events" id="events">
         <div class="container">
@@ -14,10 +15,10 @@
                     <div class="item">
                         <div class="row">
                             <!-- <div class="col-lg-3">
-                    <div class="image">
-                      <img src="assets/images/event-01.jpg" alt="">
-                    </div>
-                  </div> -->
+                        <div class="image">
+                          <img src="assets/images/event-01.jpg" alt="">
+                        </div>
+                      </div> -->
                             <div class="col-lg-9">
                                 <ul>
                                     <li>
@@ -46,10 +47,10 @@
                     <div class="item">
                         <div class="row">
                             <!-- <div class="col-lg-3">
-                    <div class="image">
-                      <img src="assets/images/event-02.jpg" alt="">
-                    </div>
-                  </div> -->
+                        <div class="image">
+                          <img src="assets/images/event-02.jpg" alt="">
+                        </div>
+                      </div> -->
                             <div class="col-lg-9">
                                 <ul>
                                     <li>
@@ -78,10 +79,10 @@
                     <div class="item">
                         <div class="row">
                             <!-- <div class="col-lg-3">
-                    <div class="image">
-                      <img src="assets/images/event-03.jpg" alt="">
-                    </div>
-                  </div> -->
+                        <div class="image">
+                          <img src="assets/images/event-03.jpg" alt="">
+                        </div>
+                      </div> -->
                             <div class="col-lg-9">
                                 <ul>
                                     <li>
