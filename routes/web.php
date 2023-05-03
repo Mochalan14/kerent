@@ -21,7 +21,8 @@ use Illuminate\Support\Facades\Route;
 Route::controller(UserController::class)->group(function () {
     Route::get('/', 'index');
     Route::get('/sewaku', 'sewaku')->name('sewaku');
-
+    Route::get('/sewamobil', 'buatSewa');
+    Route::post('/prosesSewa', 'prosesSewa');
 });
 
 Route::get('/admin', function () {

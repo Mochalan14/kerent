@@ -15,3 +15,12 @@
 
 <!-- Global Init -->
 <script src="assets/user/js/custom.js"></script>
+<script src="https://unpkg.com/gijgo@1.9.14/js/gijgo.min.js" type="text/javascript"></script>
+<script>
+    $('#datepicker_sewa').datepicker({
+        uiLibrary: 'bootstrap5'
+    });
+    $('#datepicker_kembali').datepicker({
+        uiLibrary: 'bootstrap5'
+    });
+</script>

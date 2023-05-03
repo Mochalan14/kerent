@@ -13,7 +13,7 @@
                         <h1>Sewa Mobil Harga <em>Murah</em></h1>
                         <p>Kami menyediakan pelayanan sewa mobil dengan jaminan data pribadi aman, transaksi aman, dan
                             pastinya keuangan anda juga aman</p>
-                        <a href="#about" class="main-button-slider">Sewa Sekarang</a>
+                        <a href="/sewamobil" class="main-button-slider">Sewa Sekarang</a>
                     </div>
                 </div>
             </div>
@@ -42,23 +42,24 @@
 
 
                 <div class="col-12">
-                    <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="9000">
+                    <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="17000">
                         <div class="carousel-inner row w-10 mx-auto" role="listbox">
-                            <div class="carousel-item col-md-4 active">
-                                <div class="card">
-                                    <img class="img-fluid" alt="100%x280"
-                                        src="https://images.unsplash.com/photo-1532771098148-525cefe10c23?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=3f317c1f7a16116dec454fbc267dd8e4">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Special title treatment 1</h4>
-                                        <p class="card-text">With supporting text below as a natural lead-in to
-                                            additional content.</p>
-                                        <a href="#" class="btn main-button mt-2">
-                                            Read More
-                                        </a>
+                            @foreach ($mobil as $item)
+                                <div class="carousel-item col-md-4 {{ $item->id == 1 ? 'active' : '' }}">
+                                    <div class="card">
+                                        <img class="img-fluid" alt="100%x280"
+                                            src="https://images.unsplash.com/photo-1502877338535-766e1452684a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80">
+                                        <div class="card-body">
+                                            <h4 class="card-title">{{ $item->nama_mobil }}</h4>
+                                            <p class="card-text">Harga Mobil ini @currency($item->harga_sewa) / hari</p>
+                                            <button href="google.com" class="btn main-button mt-2">
+                                                Sewa Mobil ini
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="carousel-item col-md-4">
+                            @endforeach
+                            {{-- <div class="carousel-item col-md-4">
                                 <div class="card">
                                     <img class="img-fluid" alt="100%x280"
                                         src="https://images.unsplash.com/photo-1532771098148-525cefe10c23?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=3f317c1f7a16116dec454fbc267dd8e4">
@@ -155,7 +156,7 @@
                                         </a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -174,8 +175,7 @@
             <div class="row">
                 <div class="left-image col-lg-5 col-md-12 col-sm-12 mobile-bottom-fix-big"
                     data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
-                    <img src="assets/user/images/left-image.png" class="rounded img-fluid d-block mx-auto"
-                        alt="App">
+                    <img src="assets/user/images/left-image.png" class="rounded img-fluid d-block mx-auto" alt="App">
                 </div>
                 <div class="right-text offset-lg-1 col-lg-6 col-md-12 col-sm-12 mobile-bottom-fix">
                     <ul>
@@ -193,8 +193,8 @@
                             <img src="assets/user/images/about-icon-02.png" alt="">
                             <div class="text">
                                 <h4>Sed blandit quam in velit</h4>
-                                <p>You can <a rel="nofollow"
-                                        href="https://templatemo.com/tm-540-lava-landing-page">download Lava
+                                <p>You can <a rel="nofollow" href="https://templatemo.com/tm-540-lava-landing-page">download
+                                        Lava
                                         Template</a> from our website. Duis viverra, ipsum et scelerisque placerat, orci
                                     magna consequat ligula.</p>
                             </div>
