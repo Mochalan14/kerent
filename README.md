@@ -1,7 +1,7 @@
-## kerent
+# kerent
  Projek Akhir dari Program Sekolah Beta
  
- # Langkah - Langkah untuk menjalankan Projek ini ke Local Enviroment
+ ## Langkah - Langkah untuk menjalankan Projek ini ke Local Enviroment
  1. Clone/download Repo ini, Extract dan letakkan pada folder yang kamu pilih
  2. Buat File .env pada projek tersebut
  3. ketik "composer install" untuk mengunduh vendor yg terdapat pada projek ini.
