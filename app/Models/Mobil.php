@@ -11,4 +11,14 @@ class Mobil extends Model
 
     protected $table = 'mobils';
     protected $guarded = ['id'];
+
+    public function statuses()
+    {
+        return $this->belongsTo(Status::class, 'status_id');
+    }
+
+    public function penyewaans()
+    {
+        return $this->hasMany(Penyewaan::class, 'mobil_id');
+    }
 }

@@ -22,7 +22,7 @@ return new class extends Migration
             $table->date('tanggal_sewa');
             $table->date('tanggal_kembali');
             $table->integer('total_harga');
-            $table->string('bukti_pembayaran');
+            $table->string('bukti_pembayaran')->nullable();
             $table->unsignedBigInteger('konfirmasi_id');
             $table->foreign('konfirmasi_id')->references('id')->on('konfirmasis');
             $table->timestamps();

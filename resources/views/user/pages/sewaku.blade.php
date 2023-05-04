@@ -11,39 +11,43 @@
                         <h2>Daftar Penyewaanku</h2>
                     </div>
                 </div>
-                <div class="col-lg-12 col-md-6">
-                    <div class="item">
-                        <div class="row">
-                            <!-- <div class="col-lg-3">
-                        <div class="image">
-                          <img src="assets/images/event-01.jpg" alt="">
-                        </div>
-                      </div> -->
-                            <div class="col-lg-9">
-                                <ul>
-                                    <li>
-                                        <span class="category mt-3">Web Design</span>
-                                        <h4>UI Best Practices</h4>
-                                    </li>
-                                    <li>
-                                        <span>Date:</span>
-                                        <h6>16 Feb 2036</h6>
-                                    </li>
-                                    <li>
+                @foreach ($daftarsewa as $sewa)
+                    <div class="col-lg-12 col-md-6">
+                        <div class="item">
+                            <div class="row">
+                                <div class="col-lg-9">
+                                    <ul>
+                                        <li>
+                                            <span
+                                                class="category mt-3 {{ $sewa->konfirmasi_id == 3 ? 'text-success' : '' }}">{{ $sewa->konfirmasis->konfirmasi }}</span>
+                                            <h4>{{ $sewa->mobils->nama_mobil }}</h4>
+                                        </li>
+                                        <li>
+                                            <span>Tanggal Sewa:</span>
+                                            <h6>{{ $sewa->tanggal_sewa }}</h6>
+                                            <span>Tanggal Kembali:</span>
+                                            <h6>{{ $sewa->tanggal_kembali }}</h6>
+                                        </li>
+                                        {{-- <li>
+                                            <span>Tanggal Kembali:</span>
+                                            <h6>{{ $sewa->tanggal_kembali }}</h6>
+                                        </li> --}}
+                                        {{-- <li>
                                         <span>Duration:</span>
                                         <h6>22 Hours</h6>
-                                    </li>
-                                    <li>
-                                        <span>Price:</span>
-                                        <h6>$120</h6>
-                                    </li>
-                                </ul>
-                                <a href="#"><i class="fa fa-angle-right"></i></a>
+                                    </li> --}}
+                                        <li>
+                                            <span>Total Harga:</span>
+                                            <h6>@currency($sewa->total_harga)</h6>
+                                        </li>
+                                    </ul>
+                                    <a href="#"><i class="fa fa-angle-right"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-12 col-md-6">
+                @endforeach
+                {{-- <div class="col-lg-12 col-md-6">
                     <div class="item">
                         <div class="row">
                             <!-- <div class="col-lg-3">
@@ -106,7 +110,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
