@@ -28,6 +28,8 @@
                             <input class="text-center" id="datepicker_kembali" name="tanggal_kembali" />
                         </div>
 
+                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+
 
                         <button type="submit" class="main-button">Submit</button>
                     </form>

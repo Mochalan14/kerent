@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Mobil;
 use App\Models\Penyewaan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -16,7 +17,8 @@ class UserController extends Controller
 
     public function sewaku()
     {
-        $daftarsewa = Penyewaan::where('user_id', 1)->get();
+        $user_id = Auth::user()->id;
+        $daftarsewa = Penyewaan::where('user_id', $user_id)->get();
         return view('user.pages.sewaku', compact(['daftarsewa']));
     }
 
@@ -29,6 +31,7 @@ class UserController extends Controller
     public function prosesSewa(Request $request)
     {
         $idmobil = $request->get('id_mobil');
+        $iduser = $request->user_id;
         $tanggalsewa = date_create($request->get('tanggal_sewa'));
         $tanggalkembali = date_create($request->get('tanggal_kembali'));
         $interval = date_diff($tanggalsewa, $tanggalkembali);
@@ -40,7 +43,7 @@ class UserController extends Controller
 
 
         Penyewaan::create([
-            'user_id'     => 1,
+            'user_id'     => $iduser,
             'mobil_id'     => $idmobil,
             'tanggal_sewa'   => $tanggalsewa,
             'tanggal_kembali'   => $tanggalkembali,
