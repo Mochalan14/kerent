@@ -19,4 +19,19 @@ class Penyewaan extends Model
         'bukti_pembayaran',
         'konfirmasi_id',
     ];
+
+    public function konfirmasis()
+    {
+        return $this->belongsTo(Konfirmasi::class, 'konfirmasi_id');
+    }
+
+    public function users()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function mobils()
+    {
+        return $this->belongsTo(Mobil::class, 'mobil_id');
+    }
 }
