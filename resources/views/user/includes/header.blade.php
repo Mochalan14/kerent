@@ -14,16 +14,16 @@
                         <li class="scroll-to-section"><a href="#about" class="menu-item">Mobil</a></li>
                         <li class="scroll-to-section"><a href="{{ route('sewaku') }}" class="menu-item">Sewaku</a>
                         </li>
-                        <li class="submenu">
-                            <a href="javascript:;">Drop Down</a>
-                            <ul>
-                                <li><a href="" class="menu-item">About Us</a></li>
-                                <li><a href="" class="menu-item">Features</a></li>
-                                <li><a href="" class="menu-item">FAQ's</a></li>
-                                <li><a href="" class="menu-item">Blog</a></li>
-                            </ul>
-                        </li>
                         <li class="scroll-to-section"><a href="#contact-us" class="menu-item">Contact Us</a></li>
+                        @if (Auth::check())
+                            <li class="submenu">
+                                <a href="javascript:;">{{ Auth::user()->name }}</a>
+                                <ul>
+                                    <li><a href="/logout" class="menu-item">Logout</a></li>
+
+                                </ul>
+                            </li>
+                        @endif
                     </ul>
                     <a class='menu-trigger'>
                         <span>Menu</span>
