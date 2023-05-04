@@ -18,8 +18,9 @@
                                 <div class="col-lg-9">
                                     <ul>
                                         <li>
-                                            <span class="category mt-3">{{ $sewa->konfirmasi_id }}</span>
-                                            <h4>{{ $sewa->mobil_id }}</h4>
+                                            <span
+                                                class="category mt-3 {{ $sewa->konfirmasi_id == 3 ? 'text-success' : '' }}">{{ $sewa->konfirmasis->konfirmasi }}</span>
+                                            <h4>{{ $sewa->mobils->nama_mobil }}</h4>
                                         </li>
                                         <li>
                                             <span>Tanggal Sewa:</span>

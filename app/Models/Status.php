@@ -10,4 +10,9 @@ class Status extends Model
     use HasFactory;
     protected $table = 'statuses';
     protected $guarded = ['id'];
+
+    public function mobils()
+    {
+        return $this->hasMany(Mobil::class, 'status_id');
+    }
 }
