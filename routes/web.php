@@ -3,6 +3,7 @@
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,3 +28,5 @@ Route::controller(UserController::class)->group(function () {
 Route::get('/admin', function () {
     return view('admin.index');
 });
+
+
