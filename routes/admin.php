@@ -1,15 +1,15 @@
 <?php
 
+
 use App\Http\Controllers\Admin\KonfirmasiController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\StatusController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Admin\MobilController;
 
 Route::get('/', function () {
     return view('admin.index');
 })->name('index');
-
 
 
 Route::prefix('/konfirmasi')->name('konfirmasi.')->group(function () {
@@ -37,5 +37,14 @@ Route::prefix('/role')->name('role.')->group(function () {
     Route::get('/edit/{id}', [RoleController::class, 'edit'])->name('edit');
     Route::put('/update/{id}', [RoleController::class, 'update'])->name('update');
     Route::post('/destroy/{id}', [RoleController::class, 'destroy'])->name('destroy');
+
+Route::prefix('/mobil')->name('mobil.')->group(function () {
+    Route::get('/', [MobilController::class, 'index'])->name('index');
+    Route::get('/create', [MobilController::class, 'create'])->name('create');
+    Route::post('/store', [MobilController::class, 'store'])->name('store');
+    Route::get('/edit/{mobil}', [MobilController::class, 'edit'])->name('edit');
+    Route::put('/update/{mobil}', [MobilController::class, 'update'])->name('update');
+    Route::delete('/mobil/{mobil}', [MobilController::class, 'destroy'])->name('destroy');
+
 });
 

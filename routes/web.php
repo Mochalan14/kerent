@@ -24,6 +24,7 @@ Route::controller(UserController::class)->group(function () {
     Route::get('/sewaku', 'sewaku')->name('sewaku')->middleware('auth');
     Route::get('/sewamobil', 'buatSewa')->middleware('auth');
     Route::post('/prosesSewa', 'prosesSewa');
+    Route::get('/detailsewa/{id}', 'detailsewa')->name('sewa.detail');
 });
 
 Route::controller(LoginController::class)->group(function () {
@@ -34,6 +35,4 @@ Route::controller(LoginController::class)->group(function () {
     Route::post('/proseslogin', 'proseslogin');
 });
 
-Route::get('/admin', function () {
-    return view('admin.index');
-});
+

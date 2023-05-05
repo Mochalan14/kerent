@@ -29,7 +29,7 @@
             <span>Daftar Transaksi</span></a>
     </li>
     <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{ route('admin.mobil.index') }}">
             <i class="fas fa-fw fa-car"></i>
             <span>Daftar Mobil</span></a>
     </li>
