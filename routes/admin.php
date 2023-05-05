@@ -37,6 +37,7 @@ Route::prefix('/role')->name('role.')->group(function () {
     Route::get('/edit/{id}', [RoleController::class, 'edit'])->name('edit');
     Route::put('/update/{id}', [RoleController::class, 'update'])->name('update');
     Route::post('/destroy/{id}', [RoleController::class, 'destroy'])->name('destroy');
+});
 
 Route::prefix('/mobil')->name('mobil.')->group(function () {
     Route::get('/', [MobilController::class, 'index'])->name('index');
@@ -45,6 +46,4 @@ Route::prefix('/mobil')->name('mobil.')->group(function () {
     Route::get('/edit/{mobil}', [MobilController::class, 'edit'])->name('edit');
     Route::put('/update/{mobil}', [MobilController::class, 'update'])->name('update');
     Route::delete('/mobil/{mobil}', [MobilController::class, 'destroy'])->name('destroy');
-
 });
-
