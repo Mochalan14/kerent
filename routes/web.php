@@ -35,6 +35,4 @@ Route::controller(LoginController::class)->group(function () {
     Route::post('/proseslogin', 'proseslogin');
 });
 
-Route::get('/admin', function () {
-    return view('admin.index');
-});
+
