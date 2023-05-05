@@ -16,15 +16,8 @@
         <a class="nav-link" href="#">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
-    </li>
-
-    <!-- Divider -->
+        </li>
     
-    <li class="nav-item active">
-        <a class="nav-link" href="index.html">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
-    </li>
     <li class="nav-item active">
         <a class="nav-link" href="index.html">
             <i class="fas fa-fw fa-users"></i>
@@ -39,6 +32,21 @@
         <a class="nav-link" href="{{ route('admin.mobil.index') }}">
             <i class="fas fa-fw fa-car"></i>
             <span>Daftar Mobil</span></a>
+    </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="{{ route('admin.konfirmasi.index') }}">
+            <i class="fas fa-fw fa-list-check"></i>
+            <span>Daftar Konfirmasi</span></a>
+    </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="{{ route('admin.status.index') }}">
+            <i class="fas fa-fw fa-face-grin-beam-sweat"></i>
+            <span>Daftar Status</span></a>
+    </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="{{ route('admin.role.index') }}">
+            <i class="fas fa-fw fa-user-plus"></i>
+            <span>Daftar Role</span></a>
     </li>
     
     <hr class="sidebar-divider my-0">
