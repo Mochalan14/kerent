@@ -54,4 +54,10 @@ class UserController extends Controller
 
         return redirect()->route('sewaku');
     }
+
+    public function detailsewa($id)
+    {
+        $detailsewa = Penyewaan::where('id', $id)->get();
+        return view('user.pages.detailsewa', compact(['detailsewa']));
+    }
 }
