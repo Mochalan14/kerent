@@ -15,6 +15,12 @@ class UserController extends Controller
         return view('user.pages.index', compact(['mobil']));
     }
 
+    public function mobil()
+    {
+        $daftarmobil = Mobil::all();
+        return view('user.pages.mobil', compact(['daftarmobil']));
+    }
+
     public function sewaku()
     {
         $user_id = Auth::user()->id;
@@ -80,5 +86,13 @@ class UserController extends Controller
         ]);
 
         return redirect()->route('sewaku');
+    }
+
+    public function pesanWA(Request $request)
+    {
+        $nama = $request->nama;
+        $pesan = $request->pesan;
+        $chat = "Halo, saya $nama ingin menyampaikan pesan '$pesan'";
+        return redirect("https://api.whatsapp.com/send?phone=62895343292830&text=$chat");
     }
 }

@@ -21,9 +21,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(UserController::class)->group(function () {
     Route::get('/', 'index')->name('user.index');
+    Route::get('/mobil', 'mobil')->name('user.mobil');
     Route::get('/sewaku', 'sewaku')->name('sewaku')->middleware('auth');
-    Route::get('/sewamobil', 'buatSewa')->middleware('auth');
+    Route::get('/sewamobil', 'buatSewa')->name('user.sewa')->middleware('auth');
     Route::post('/prosesSewa', 'prosesSewa');
+    Route::post('/pesanWA', 'pesanWA');
     Route::post('/kirimBukti', 'uploadBukti');
     Route::get('/detailsewa/{id}', 'detailsewa')->name('sewa.detail');
 });
