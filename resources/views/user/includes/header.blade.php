@@ -11,7 +11,8 @@
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                         <li class="scroll-to-section"><a href="/" class="menu-item">Beranda</a></li>
-                        <li class="scroll-to-section"><a href="#about" class="menu-item">Mobil</a></li>
+                        <li class="scroll-to-section"><a href="{{ route('user.mobil') }}" class="menu-item">Mobil</a>
+                        </li>
                         <li class="scroll-to-section"><a href="{{ route('sewaku') }}" class="menu-item">Sewaku</a>
                         </li>
                         <li class="scroll-to-section"><a href="#contact-us" class="menu-item">Contact Us</a></li>
