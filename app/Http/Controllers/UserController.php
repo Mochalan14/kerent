@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $mobil = Mobil::all();
+        $mobil = Mobil::where('status_id', 1)->get();
         return view('user.pages.index', compact(['mobil']));
     }
 
@@ -24,8 +24,9 @@ class UserController extends Controller
 
     public function buatSewa()
     {
-        $mobil = Mobil::all();
-        return view('user.pages.sewa.create', compact(['mobil']));
+        $mobil = Mobil::where('status_id', 1)->get();
+        $jumlahTersedia = count($mobil);
+        return view('user.pages.sewa.create', compact(['mobil', 'jumlahTersedia']));
     }
 
     public function prosesSewa(Request $request)
@@ -57,7 +58,27 @@ class UserController extends Controller
 
     public function detailsewa($id)
     {
+        $idsewa = $id;
         $detailsewa = Penyewaan::where('id', $id)->get();
-        return view('user.pages.detailsewa', compact(['detailsewa']));
+        return view('user.pages.detailsewa', compact(['detailsewa', 'idsewa']));
+    }
+
+    public function uploadBukti(Request $request)
+    {
+
+        $sewa = Penyewaan::where('id', $request->id_sewa);
+        $file = $request->file('bukti_pembayaran');
+        $filename = time()  . '.' . $file->getClientOriginalExtension();
+
+
+        $photo_path = $request->file('bukti_pembayaran')->storeAs('public/buktitf', $filename);
+        $photo_path = str_replace('public/', '', $photo_path);
+
+        $sewa->update([
+            'bukti_pembayaran' => $photo_path,
+            'konfirmasi_id' => 2,
+        ]);
+
+        return redirect()->route('sewaku');
     }
 }
