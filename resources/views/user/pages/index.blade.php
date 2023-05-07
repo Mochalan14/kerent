@@ -53,7 +53,7 @@
                                             <h4 class="card-title">{{ $item->nama_mobil }}</h4>
                                             <p class="card-text">Harga Mobil ini @currency($item->harga_sewa) / hari</p>
                                             <button href="google.com" class="btn main-button mt-2">
-                                                Sewa Mobil ini
+                                                {{ $item->statuses->status }}
                                             </button>
                                         </div>
                                     </div>

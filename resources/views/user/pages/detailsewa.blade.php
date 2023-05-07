@@ -63,19 +63,29 @@
                                     <h3>Bukti Pembayaran</h3>
 
                                 </div>
-                                <div class="col-lg-8">
-                                    <form class="row">
-                                        <div class="col form-group">
-                                            <label for="files">Upload File</label>
-                                            <input type="file" class="form-control-file" id="files">
-                                        </div>
-                                        <div class="col form-group">
-                                            <button class="main-button">Kirim</button>
+                                @if ($detailsewa[0]->bukti_pembayaran != 0)
+                                    <div class="col-8">
+                                        <img src="{{ asset('storage/' . $detailsewa[0]->bukti_pembayaran) }}"
+                                            class="img-fluid" alt="{{ $detailsewa[0]->bukti_pembayaran }}">
+                                    </div>
+                                @else
+                                    <div class="col-lg-8">
+                                        <form class="row" action="/kirimBukti" method="post"
+                                            enctype="multipart/form-data">
+                                            @csrf
+                                            <div class="col form-group">
+                                                <label for="files">Upload File</label>
+                                                <input type="file" class="form-control-file" id="files"
+                                                    name="bukti_pembayaran">
+                                            </div>
+                                            <input type="hidden" name="id_sewa" value="{{ $idsewa }}">
+                                            <div class="col form-group">
+                                                <button type="submit" class="main-button">Kirim</button>
+                                            </div>
+                                        </form>
 
-                                        </div>
-                                    </form>
-
-                                </div>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                 @endforeach
