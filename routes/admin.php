@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\StatusController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\MobilController;
+use App\Http\Controllers\Admin\PenyewaanController;
 
 Route::get('/', function () {
     return view('admin.index');
@@ -46,4 +47,13 @@ Route::prefix('/mobil')->name('mobil.')->group(function () {
     Route::get('/edit/{mobil}', [MobilController::class, 'edit'])->name('edit');
     Route::put('/update/{mobil}', [MobilController::class, 'update'])->name('update');
     Route::delete('/mobil/{mobil}', [MobilController::class, 'destroy'])->name('destroy');
+});
+
+Route::prefix('/transaksi')->name('transaksi.')->group(function () {
+    Route::get('/', [PenyewaanController::class, 'index'])->name('index');
+    Route::get('/konfirmasi/{id}', [PenyewaanController::class, 'konfirmasi'])->name('konfirmasi');
+    Route::get('/edit/{id}', [PenyewaanController::class, 'edit'])->name('edit');
+    Route::put('/proseskonfirmasi/{id}', [PenyewaanController::class, 'proseskonfirmasi'])->name('proseskonfirmasi');
+    Route::put('/update/{id}', [PenyewaanController::class, 'update'])->name('update');
+    Route::delete('/transaksi/{id}', [PenyewaanController::class, 'destroy'])->name('destroy');
 });
