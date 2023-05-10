@@ -306,6 +306,8 @@
     <!-- Page level plugins -->
     <script src="{{ asset('assets/admin/vendor/chart.js/Chart.min.js') }}"></script>
 
+    @include('sweetalert::alert')
+
 </body>
 
 </html>
