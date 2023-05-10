@@ -41,7 +41,13 @@
 
                                         <li>
                                             <span>Sisa Sewa:</span>
-                                            <h6>{{ $jumlahHari }} Hari</h6>
+                                            @if ($tanggalsekarang <= $tanggalkembali && $tanggalsekarang >= $tanggalsewa)
+                                                <h6>{{ $jumlahHari }} Hari</h6>
+                                            @elseif ($tanggalsekarang > $tanggalkembali)
+                                                <h6>Sudah Selesai</h6>
+                                            @else
+                                                <h6>Belum dimulai</h6>
+                                            @endif
                                             <span>Total Harga:</span>
                                             <h6>@currency($sewa->total_harga)</h6>
                                         </li>

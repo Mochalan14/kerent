@@ -16,19 +16,27 @@
                                 <label for="mobil" class="col">Nama Mobil</label>
                                 <select class="form-select col" aria-label="Default select example" id="mobil"
                                     name="id_mobil">
-                                    <option selected>Pilih Mobil</option>
                                     @foreach ($mobil as $item)
                                         <option value="{{ $item->id }}">{{ $item->nama_mobil }}</option>
                                     @endforeach
                                 </select>
+                                @error('id_mobil')
+                                    <span class="me-2 text-danger fw-bold">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail2">Tanggal Sewa</label>
                                 <input class="text-center" id="datepicker_sewa" name="tanggal_sewa" />
+                                @error('tanggal_sewa')
+                                    <span class="me-2 text-danger fw-bold">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail3">Tanggal Kembali</label>
                                 <input class="text-center" id="datepicker_kembali" name="tanggal_kembali" />
+                                @error('tanggal_kembali')
+                                    <span class="me-2 text-danger fw-bold">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">

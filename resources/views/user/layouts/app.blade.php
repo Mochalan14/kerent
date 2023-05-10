@@ -42,6 +42,7 @@
     @include('user.includes.footer')
 
     @include('user.includes.script')
+    @include('sweetalert::alert')
 
 
 

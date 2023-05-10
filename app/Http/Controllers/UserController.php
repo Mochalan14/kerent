@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserSewaValidation;
 use App\Models\Mobil;
 use App\Models\Penyewaan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class UserController extends Controller
 {
@@ -35,7 +37,7 @@ class UserController extends Controller
         return view('user.pages.sewa.create', compact(['mobil', 'jumlahTersedia']));
     }
 
-    public function prosesSewa(Request $request)
+    public function prosesSewa(UserSewaValidation $request)
     {
         $idmobil = $request->get('id_mobil');
         $iduser = $request->user_id;
@@ -59,6 +61,7 @@ class UserController extends Controller
             'bukti_pembayaran' => 0,
         ]);
 
+        Alert::success('Berhasil', 'Penyewaan Berhasil dibuat, Silahkan Melakukan Pembayaran');
         return redirect()->route('sewaku');
     }
 
