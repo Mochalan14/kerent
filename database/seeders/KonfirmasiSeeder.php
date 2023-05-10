@@ -23,6 +23,7 @@ class KonfirmasiSeeder extends Seeder
             ['konfirmasi' => 'Belum dibayar'],
             ['konfirmasi' => 'Menunggu konfirmasi'],
             ['konfirmasi' => 'Berhasil disewa'],
+            ['konfirmasi' => 'Transaksi selesai'],
         ];
 
         Konfirmasi::insert($konfirmasis);
