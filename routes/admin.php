@@ -1,14 +1,12 @@
 <?php
 
-
 use App\Http\Controllers\Admin\KonfirmasiController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\StatusController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\MobilController;
 use App\Http\Controllers\Admin\PenyewaanController;
-
-
+use App\Http\Controllers\Admin\UserController;
 
 Route::middleware('admin')->group(function () {
     Route::get('/', function () {
@@ -58,5 +56,14 @@ Route::middleware('admin')->group(function () {
         Route::put('/proseskonfirmasi/{id}', [PenyewaanController::class, 'proseskonfirmasi'])->name('proseskonfirmasi');
         Route::put('/update/{id}', [PenyewaanController::class, 'update'])->name('update');
         Route::delete('/transaksi/{id}', [PenyewaanController::class, 'destroy'])->name('destroy');
+    });
+    
+    Route::prefix('/user')->name('user.')->group(function () {
+        Route::get('/', [UserController::class, 'index'])->name('index');
+        Route::get('/create', [UserController::class, 'create'])->name('create');
+        Route::post('/store', [UserController::class, 'store'])->name('store');
+        Route::get('/edit/{id}', [UserController::class, 'edit'])->name('edit');
+        Route::put('/update/{id}', [UserController::class, 'update'])->name('update');
+        Route::post('/destroy/{id}', [UserController::class, 'destroy'])->name('destroy');
     });
 });

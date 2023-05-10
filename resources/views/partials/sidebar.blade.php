@@ -19,7 +19,7 @@
     </li>
 
     <li class="nav-item active">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ route('admin.user.index') }}">
             <i class="fas fa-fw fa-users"></i>
             <span>Daftar User</span></a>
     </li>
