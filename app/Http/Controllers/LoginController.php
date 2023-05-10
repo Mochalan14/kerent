@@ -37,6 +37,9 @@ class LoginController extends Controller
         // dd($request->all());
         if (Auth::attempt($request->only('email', 'password'))) {
             // return redirect()->route('admin.index');
+            if (Auth::user()->roles->role == 'admin') {
+                return redirect()->route('admin.admin.index');
+            }
             return redirect()->route('user.index');
         };
 

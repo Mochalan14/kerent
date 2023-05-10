@@ -51,9 +51,9 @@
 
     <hr class="sidebar-divider my-0">
 
-    <<li class="nav-item active">
+    <li class="nav-item active">
         <a class="nav-link" href="{{ route('logout') }}">
             <i class="fas fa-logout"></i>
             <span>Logout</span></a>
-        </li>
+    </li>
 </ul>
