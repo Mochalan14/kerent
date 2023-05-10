@@ -51,12 +51,9 @@
 
     <hr class="sidebar-divider my-0">
 
-    <li class="nav-item active">
-        <a class="nav-link" onclick="document.getElementaryById('logout-form').submit() " href="#">
-            <i class="fas fa-logout fa-fw"></i>
+    <<li class="nav-item active">
+        <a class="nav-link" href="{{ route('logout') }}">
+            <i class="fas fa-logout"></i>
             <span>Logout</span></a>
-        <form id="logour-form" action="#" method="post">
-            @csrf
-        </form>
-    </li>
+        </li>
 </ul>

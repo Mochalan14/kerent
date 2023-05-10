@@ -22,18 +22,18 @@ use Illuminate\Support\Facades\Route;
 Route::controller(UserController::class)->group(function () {
     Route::get('/', 'index')->name('user.index');
     Route::get('/mobil', 'mobil')->name('user.mobil');
-    Route::get('/sewaku', 'sewaku')->name('sewaku')->middleware('auth');
-    Route::get('/sewamobil', 'buatSewa')->name('user.sewa')->middleware('auth');
-    Route::post('/prosesSewa', 'prosesSewa');
     Route::post('/pesanWA', 'pesanWA');
-    Route::post('/kirimBukti', 'uploadBukti');
-    Route::get('/detailsewa/{id}', 'detailsewa')->name('sewa.detail');
+    Route::get('/sewaku', 'sewaku')->name('sewaku')->middleware('member');
+    Route::get('/sewamobil', 'buatSewa')->name('user.sewa')->middleware('member');
+    Route::post('/prosesSewa', 'prosesSewa')->middleware('member');
+    Route::post('/kirimBukti', 'uploadBukti')->middleware('member');
+    Route::get('/detailsewa/{id}', 'detailsewa')->name('sewa.detail')->middleware('member');
 });
 
 Route::controller(LoginController::class)->group(function () {
     Route::get('/login', 'login')->name('login');
     Route::get('/register', 'register');
-    Route::get('/logout', 'logout');
+    Route::get('/logout', 'logout')->name('logout');
     Route::post('/registerproses', 'registerproses');
     Route::post('/proseslogin', 'proseslogin');
 });
