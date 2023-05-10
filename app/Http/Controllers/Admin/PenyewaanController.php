@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Konfirmasi;
+use App\Models\Mobil;
 use App\Models\Penyewaan;
 use Illuminate\Http\Request;
 
@@ -12,9 +13,10 @@ class PenyewaanController extends Controller
     public function index(Request $request)
     {
         $perlukonfirmasi = Penyewaan::where('konfirmasi_id', 2)->get();
-        $sudahkonfirmasi = Penyewaan::where('konfirmasi_id', 3)->get();
+        $dalampenyewaan = Penyewaan::where('konfirmasi_id', 3)->orderBy('tanggal_kembali')->get();
+        $transaksiselesai = Penyewaan::where('konfirmasi_id', 4)->get();
         $title = 'Daftar Penyewaan';
-        return view('admin.penyewaan.index', compact('sudahkonfirmasi', 'perlukonfirmasi', 'title'));
+        return view('admin.penyewaan.index', compact('dalampenyewaan', 'perlukonfirmasi', 'transaksiselesai', 'title'));
     }
 
     public function konfirmasi($id)
@@ -27,8 +29,14 @@ class PenyewaanController extends Controller
     public function proseskonfirmasi(Request $request, $id)
     {
         $penyewaan = Penyewaan::where('id', $id)->first();
+        $mobil = Mobil::where('id', $penyewaan->mobils->id)->first();
+
         $penyewaan->update([
-            'konfirmasi_id' => $request->konfirmasi_id
+            'konfirmasi_id' => $request->konfirmasi_id,
+        ]);
+
+        $mobil->update([
+            'status_id' => 2,
         ]);
 
         return redirect()->route('admin.transaksi.index');
@@ -39,6 +47,20 @@ class PenyewaanController extends Controller
 
         $penyewaan = Penyewaan::where('id', $id)->first();
         $penyewaan->delete();
+
+        return redirect()->route('admin.transaksi.index');
+    }
+
+    public function selesaikan($id)
+    {
+        $penyewaan = Penyewaan::where('id', $id)->first();
+        $mobil = Mobil::where('id', $penyewaan->mobils->id)->first();
+        $penyewaan->update([
+            'konfirmasi_id' => 4,
+        ]);
+        $mobil->update([
+            'status_id' => 1,
+        ]);
 
         return redirect()->route('admin.transaksi.index');
     }

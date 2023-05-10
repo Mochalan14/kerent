@@ -47,7 +47,7 @@
             </div>
         </div>
         <div class="card-body">
-            <h3>Sudah Konfirmasi</h3>
+            <h3>Dalam Transaksi</h3>
             <div class="table-responsive">
                 <table class="table table-bordered">
                     <thead>
@@ -56,16 +56,20 @@
                             <th>Nama Mobil</th>
                             <th>Nama User</th>
                             <th>Total Harga</th>
+                            <th>Tanggal Sewa</th>
+                            <th>Tanggal Berakhir</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($sudahkonfirmasi as $penyewaan)
+                        @forelse ($dalampenyewaan as $penyewaan)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $penyewaan->mobils->nama_mobil }}</td>
                                 <td>{{ $penyewaan->users->name }}</td>
                                 <td>@currency($penyewaan->total_harga)</td>
+                                <td>{{ $penyewaan->tanggal_sewa }}</td>
+                                <td>{{ $penyewaan->tanggal_kembali }}</td>
                                 <td>
                                     {{-- <a href="{{ route('admin.mobil.edit', $mobil->id) }}"
                                         class="btn btn-sm btn-warning">Edit</a> --}}
@@ -75,6 +79,54 @@
                                         @method('delete')
                                         <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                                     </form>
+                                    <a href="{{ route('admin.transaksi.selesai', $penyewaan->id) }}"
+                                        class="btn btn-sm btn-success">Selesai</a>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="6" class="text-center">Data Kosong</td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card-body">
+            <h3>Transaksi Selesai</h3>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Mobil</th>
+                            <th>Nama User</th>
+                            <th>Total Harga</th>
+                            <th>Tanggal Sewa</th>
+                            <th>Tanggal Berakhir</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse ($transaksiselesai as $penyewaan)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $penyewaan->mobils->nama_mobil }}</td>
+                                <td>{{ $penyewaan->users->name }}</td>
+                                <td>@currency($penyewaan->total_harga)</td>
+                                <td>{{ $penyewaan->tanggal_sewa }}</td>
+                                <td>{{ $penyewaan->tanggal_kembali }}</td>
+                                <td>
+                                    {{-- <a href="{{ route('admin.mobil.edit', $mobil->id) }}"
+                                        class="btn btn-sm btn-warning">Edit</a> --}}
+                                    <form onclick="return confirm('anda yakin data dihapus?');" class="d-inline"
+                                        action="{{ route('admin.transaksi.destroy', $penyewaan->id) }}" method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                    </form>
+                                    <a href="{{ route('admin.transaksi.selesai', $penyewaan->id) }}"
+                                        class="btn btn-sm btn-success">Selesai</a>
                                 </td>
                             </tr>
                         @empty
