@@ -16,9 +16,13 @@
                         <li class="scroll-to-section"><a href="{{ route('sewaku') }}" class="menu-item">Sewaku</a>
                         </li>
                         <li class="scroll-to-section"><a href="#contact-us" class="menu-item">Contact Us</a></li>
+                        @if (Auth::guest())
+                            <li class="scroll-to-section"><a href="{{ route('login') }}" class="menu-item">Login</a>
+                            </li>
+                        @endif
                         @if (Auth::check())
                             <li class="submenu">
-                                <a href="javascript:;">{{ Auth::user()->name }}</a>
+                                <a href="#">{{ Auth::user()->name }}</a>
                                 <ul>
                                     <li><a href="/logout" class="menu-item">Logout</a></li>
 

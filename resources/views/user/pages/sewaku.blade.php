@@ -13,13 +13,14 @@
                 </div>
                 @foreach ($daftarsewa as $sewa)
                     <div class="col-lg-12 col-md-6">
-                        <div class="item" style="background-color: {{ $sewa->konfirmasi_id == 3 ? '#f2f8f1ee' : '' }} ">
+                        <div class="item"
+                            style="background-color: {{ $sewa->konfirmasi_id == 3 || $sewa->konfirmasi_id == 4 ? '#f2f8f1ee' : '' }} ">
                             <div class="row">
                                 <div class="col-lg-9">
                                     <ul>
                                         <li>
                                             <span
-                                                class="category mt-3 {{ $sewa->konfirmasi_id == 3 ? 'text-success' : '' }}">{{ $sewa->konfirmasis->konfirmasi }}</span>
+                                                class="category mt-3 {{ $sewa->konfirmasi_id == 3 || $sewa->konfirmasi_id == 4 ? 'text-success' : '' }}">{{ $sewa->konfirmasis->konfirmasi }}</span>
                                             <h4>{{ $sewa->mobils->nama_mobil }}</h4>
                                         </li>
                                         <li>
@@ -29,7 +30,18 @@
                                             <h6>{{ $sewa->tanggal_kembali }}</h6>
                                         </li>
 
+                                        @php
+                                            $tanggalsewa = date_create($sewa->tanggal_sewa);
+                                            $tanggalkembali = date_create($sewa->tanggal_kembali);
+                                            
+                                            $tanggalsekarang = date_create(date('Y/m/d'));
+                                            $interval = date_diff($tanggalkembali, $tanggalsekarang);
+                                            $jumlahHari = $interval->format('%a');
+                                        @endphp
+
                                         <li>
+                                            <span>Sisa Sewa:</span>
+                                            <h6>{{ $jumlahHari }} Hari</h6>
                                             <span>Total Harga:</span>
                                             <h6>@currency($sewa->total_harga)</h6>
                                         </li>

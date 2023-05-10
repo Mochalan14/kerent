@@ -56,6 +56,7 @@ Route::middleware('admin')->group(function () {
         Route::get('/konfirmasi/{id}', [PenyewaanController::class, 'konfirmasi'])->name('konfirmasi');
         Route::get('/edit/{id}', [PenyewaanController::class, 'edit'])->name('edit');
         Route::put('/proseskonfirmasi/{id}', [PenyewaanController::class, 'proseskonfirmasi'])->name('proseskonfirmasi');
+        Route::get('/selesai/{id}', [PenyewaanController::class, 'selesaikan'])->name('selesai');
         Route::put('/update/{id}', [PenyewaanController::class, 'update'])->name('update');
         Route::delete('/transaksi/{id}', [PenyewaanController::class, 'destroy'])->name('destroy');
     });
